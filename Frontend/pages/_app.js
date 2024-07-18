@@ -7,7 +7,9 @@ import { persistStore, persistReducer } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import storage from 'redux-persist/lib/storage';
 
-const reducers = combineReducers({ users });
+import user from "../reducers/users"
+
+const reducers = combineReducers({ user });
 const persistConfig = { key: 'hackatweet', storage };
 
 const store = configureStore({
@@ -24,7 +26,7 @@ function App({ Component, pageProps }) {
       <PersistGate persistor={persistor}>
 
         <Head>
-          <title>Next.js App</title>
+          <title>Hackatweet</title>
         </Head>
         <Component {...pageProps} />
       </PersistGate>

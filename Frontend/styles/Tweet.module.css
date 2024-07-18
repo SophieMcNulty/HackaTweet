@@ -1,0 +1,37 @@
+.container {
+    font-family: 'Arial';
+    color: white;
+    background-color: #243349;
+    display: flex;
+    align-content: space-between;
+
+}
+
+
+.logoUtilisateur {
+    height: 8vh;
+    width: 4vw;
+}
+
+.tweetContainer {
+    border: 1px, solid, white;
+}
+
+.tweetProfil {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding-block-end: 20px;
+
+}
+
+.tweetPicture {
+    cursor: pointer;
+}
+
+.tweetContent {
+
+    padding-block-end: 20px;
+
+
+}

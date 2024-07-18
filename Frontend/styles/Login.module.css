@@ -1,0 +1,61 @@
+.body {
+    display: flex;
+}
+
+.imageBg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    height: 100vh;
+    background-image: url('/images/twitter_bg.png');
+}
+
+.logoLeft {
+    max-width: 30vw;
+    max-height: 30vh;
+}
+
+.container {
+    font-family: 'Arial';
+    font-weight: 900;
+    height: 100vh;
+    width: 70vw;
+    color: white;
+    background-color: #243349;
+}
+
+.smallLogo {
+    height: 8vh;
+    width: 4vw
+}
+
+.contentLogin {
+    margin: 5%;
+}
+
+.title1 {
+    font-size: 62px;
+}
+
+.title2 {
+    font-size: 36px;
+}
+
+.registerBtn {
+    color: white;
+    background-color: rgb(71, 163, 216);
+    border-radius: 15px;
+    border: 0;
+    width: 10vw;
+    height: 5vh;
+}
+
+.signin {
+    color: rgb(71, 163, 216);
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 15px;
+    width: 10vw;
+    height: 5vh;
+}

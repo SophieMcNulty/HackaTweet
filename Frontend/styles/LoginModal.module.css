@@ -1,0 +1,52 @@
+.modalContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #243349;
+    height: fit-content;
+    width: fit-content;
+    margin-right: -50%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 30vw;
+    color: white;
+}
+
+.smallLogo {
+    height: 50px;
+    width: 50px;
+}
+
+.input {
+    background-color: transparent;
+    border: 1px solid white;
+    width: 50%;
+    margin: 2%;
+    border-radius: 5px;
+    height: 30px;
+    padding-left: 2%;
+    color: grey;
+}
+
+.signBtn {
+    background-color: white;
+    color: #243349;
+    border-radius: 20px;
+    border: 0;
+    width: 50%;
+    height: 25px;
+    margin-top: 2%;
+}

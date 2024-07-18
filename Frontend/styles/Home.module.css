@@ -1,22 +1,75 @@
-.main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 4rem 0;
+.container {
+    font-family: 'Arial';
+    color: white;
+    background-color: #243349;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
 }
 
-.title {
-  line-height: 1.15;
-  font-size: 4rem;
+.contentLeft {
+    border: 2px solid magenta;
+    width: 25vw;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
+.contentCenter {
+    border: 2px solid gold;
+    width: 50vw;
+    padding: 2%;
 }
 
-.title a:hover, .title a:focus, .title a:active {
-  text-decoration: underline;
+.contentRight {
+    border: 2px solid greenyellow;
+    width: 25vw;
+    padding: 2%;
+}
+
+.logoHome {
+    height: 8vh;
+    width: 4vw;
+    cursor: pointer;
+}
+
+.logoutBtn {
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 30%;
+    cursor: pointer;
+}
+
+.avatar {
+    height: 8vh;
+    width: 4vw;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nameUser {
+    padding-left: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.allHashtag {
+    font-family: 'Arial';
+    max-height: 80vh;
+    color: white;
+    background-color: #313842;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    overflow-x: hidden
 }
