@@ -51,18 +51,19 @@ function Home() {
     let tweetsToDisplay
     let hashLastTweets = <Trends hashtag={searchH} />
 
-    if (!user.searchHashtag) {
-        tweetsToDisplay = <LastTweets />
-    } else {
-        tweetsToDisplay = hashLastTweets
-    }
-
     const searchHash = (hashToSearch) => {
         if (!user.searchHashtag) {
             dispatch(updateSearchHashtag())
         }
         setSearchH(hashToSearch)
     }
+
+    if (!user.searchHashtag) {
+        tweetsToDisplay = <LastTweets />
+    } else {
+        tweetsToDisplay = hashLastTweets
+    }
+
 
     const allHashtag = hashtags.map(hash => {
         return <Hashtag hashtag={hash} searchHash={searchHash} />
@@ -81,7 +82,7 @@ function Home() {
                             <p className={styles.firstname}>{user.firstname}</p>
                             <p className={styles.username}> @ {user.username}</p>
                         </div>
-                        <button className={styles.logoutBtn} onClick={() => handleLogout()}><FontAwesomeIcon icon={faXmark} /></button>
+                        <button className={styles.logoutBtn} onClick={() => handleLogout()}>Logout</button>
                     </div>
                 </div>
             </div>
