@@ -27,6 +27,9 @@ function Tweet(props) {
         if (usernameOfUser === props.username) {
             setCreatorOrNot(true)
         }
+        if (res.user.tweetLike.some(e => e === props._id)) {
+            setLikedOrNot(true)
+        }
     }
 
 
