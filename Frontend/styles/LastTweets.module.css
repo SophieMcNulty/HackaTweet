@@ -1,8 +1,9 @@
 .container {
     font-family: 'Arial';
     color: white;
-    background-color: #243349;
+    background-color: #10223d;
     margin: 0px;
+    overflow-y: auto;
 
 
 }
@@ -10,24 +11,32 @@
 .logoUtilisateur {
     height: 8vh;
     width: 4vw;
+    padding: 20vh;
 }
 
 .header {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    border: 4px solid white;
+    font-family: 'Arial';
+    color: white;
     width: auto;
     height: 20vh;
     margin: 0px;
-    padding: 0px
+    padding: 0px;
+    font-weight: bold;
+    border-bottom: 0.5px solid rgb(181, 180, 180);
+    padding-bottom: 5vh;
+    padding-top: 5vh;
 }
 
 .inputTweet {
     color: rgb(71, 163, 216);
     background-color: transparent;
-    border: 1px solid white;
+    border: 0.5px solid rgb(181, 180, 180);
     height: 5vh;
+    padding-top: 2vh;
+    margin-top: 2vh;
 }
 
 .btnContainer {
@@ -49,4 +58,13 @@
 
 .allTweets {
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-top: 2vh;
+}
+
+.nbrOfCaracters {
+    font-family: 'Arial';
+    font-weight: lighter;
 }

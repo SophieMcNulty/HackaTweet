@@ -1,31 +1,37 @@
 .container {
     font-family: 'Arial';
     color: white;
-    background-color: #243349;
+    background-color: #10223d;
     display: flex;
     justify-content: center;
     flex-direction: row;
     height: 100vh;
     width: 100vw;
+    overflow-y: auto;
+    overflow-x: auto;
+    margin: 0px;
 }
 
 .contentLeft {
-    border: 2px solid magenta;
     width: 25vw;
     padding: 2%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border: 0.5px solid rgb(181, 180, 180);
 }
 
 .contentCenter {
-    border: 2px solid gold;
+
     width: 50vw;
     padding: 2%;
+    overflow-y: auto;
+    overflow-x: auto;
+    border: 0.5px solid rgb(181, 180, 180);
 }
 
 .contentRight {
-    border: 2px solid greenyellow;
+    border: 0.5px solid rgb(181, 180, 180);
     width: 25vw;
     padding: 2%;
 }
@@ -37,12 +43,15 @@
 }
 
 .logoutBtn {
-    color: white;
-    background-color: transparent;
-    border: 1px solid white;
-    border-radius: 10px;
-    width: 30%;
+
     cursor: pointer;
+    background-color: rgb(67, 177, 240);
+    color: #243349;
+    border-radius: 20px;
+    border: 0;
+    width: 50%;
+    height: 25px;
+    margin-left: 10px;
 }
 
 .avatar {
@@ -54,15 +63,30 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-evenly;
+    margin-left: 3vh;
 }
 
 .nameUser {
     padding-left: 2%;
     display: flex;
     flex-direction: column;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    margin-top: 0vh;
+    margin-bottom: 0vh;
+
 }
 
-.allHashtag {
+.firstname {
+    font-weight: bolder;
+    color: cadetblue;
+
+}
+
+
+
+.unsename .allHashtag {
     font-family: 'Arial';
     max-height: 80vh;
     color: white;
@@ -70,6 +94,6 @@
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    overflow-y: hidden;
-    overflow-x: hidden
+    overflow-y: auto;
+    overflow-x: auto;
 }

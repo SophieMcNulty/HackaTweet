@@ -1,37 +1,62 @@
-.container {
-    font-family: 'Arial';
-    color: white;
-    background-color: #243349;
-    display: flex;
-    align-content: space-between;
-
-}
-
-
 .logoUtilisateur {
+    display: flex;
+    justify-content: flex-start;
     height: 8vh;
     width: 4vw;
+    padding-left: 1vh;
+    padding-top: 1vh;
+    margin-right: 2vh;
+
 }
 
+
 .tweetContainer {
-    border: 1px, solid, white;
+    display: flex;
+    flex-direction: column;
+    padding: 2vh;
+    border-bottom: 0.5px solid rgb(181, 180, 180);
+    padding: 3vh;
+
+
 }
 
 .tweetProfil {
     display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-    padding-block-end: 20px;
-
-}
-
-.tweetPicture {
-    cursor: pointer;
+    justify-content: space-between;
 }
 
 .tweetContent {
-
-    padding-block-end: 20px;
-
+    padding: 5vh;
 
 }
+
+.tweetTimePassed {
+    padding-top: 2vh;
+    padding-left: 16vh;
+    font-family: 'Arial';
+    font-weight: lighter;
+    font-size: x-small;
+    color: cadetblue;
+}
+
+.firstname {
+    color: cadetblue;
+    font-weight: bolder;
+}
+
+
+
+
+
+/* 
+
+
+
+.tweetPicture {
+    cursor: pointer;
+    border: 5px, solid, rgb(218, 36, 179);
+}
+
+
+
+*/

@@ -2,17 +2,18 @@ import styles from '../styles/Home.module.css';
 import Hashtag from '../components/Hashtag';
 import Trends from '../components/Trends';
 import LastTweets from '../components/LastTweets';
-import { logout } from '../reducers/users';
+import { logout, updateSearchHashtag } from '../reducers/users';
 import { useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
 function Home() {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user.value);
     const [hashtags, setHashtags] = useState([])
-
-
+    const [searchH, setSearchH] = useState('')
 
     useEffect(() => {
         getAllHashtag()
@@ -24,8 +25,14 @@ function Home() {
         const allTweets = res.tweets
         const hashT = []
         allTweets.forEach(e => {
-            if (e.hashtag) {
-                !hashT.some(el => el === e.hashtag) && hashT.push(e.hashtag)
+            if (e.hashtags) {
+                e.hashtags.forEach(elem => {
+                    if (elem) {
+                        if (!hashT.some(el => el === elem)) {
+                            hashT.push(elem)
+                        }
+                    }
+                })
             }
         })
         setHashtags(hashT)
@@ -35,27 +42,51 @@ function Home() {
         dispatch(logout());
     }
 
+    const goHome = () => {
+        if (user.searchHashtag) {
+            dispatch(updateSearchHashtag())
+        }
+    }
+
+    let tweetsToDisplay
+    let hashLastTweets = <Trends hashtag={searchH} />
+
+    if (!user.searchHashtag) {
+        tweetsToDisplay = <LastTweets />
+    } else {
+        tweetsToDisplay = hashLastTweets
+    }
+
+    const searchHash = (hashToSearch) => {
+        if (!user.searchHashtag) {
+            dispatch(updateSearchHashtag())
+        }
+        setSearchH(hashToSearch)
+    }
+
     const allHashtag = hashtags.map(hash => {
-        return <Hashtag hashtag={hash} />
+        return <Hashtag hashtag={hash} searchHash={searchHash} />
     })
+
+
 
     return (
         <div className={styles.container}>
             <div className={styles.contentLeft}>
-                <img src='images/logo_twitter.png' alt='logo twitter' className={styles.logoHome} />
+                <img src='images/logo_twitter.png' alt='logo twitter' className={styles.logoHome} onClick={() => goHome()} />
                 <div>
                     <div className={styles.userInfo}>
                         <img src='images/avatar.png' alt='avatar' className={styles.avatar} />
                         <div className={styles.nameUser}>
-                            <p>{user.firstname}</p>
-                            <p>{user.username}</p>
+                            <p className={styles.firstname}>{user.firstname}</p>
+                            <p className={styles.username}> @ {user.username}</p>
                         </div>
+                        <button className={styles.logoutBtn} onClick={() => handleLogout()}><FontAwesomeIcon icon={faXmark} /></button>
                     </div>
-                    <button className={styles.logoutBtn} onClick={() => handleLogout()}>Logout</button>
                 </div>
             </div>
             <div className={styles.contentCenter}>
-                <LastTweets />
+                {tweetsToDisplay}
             </div>
             <div className={styles.contentRight}>
                 <h2>Trends</h2>

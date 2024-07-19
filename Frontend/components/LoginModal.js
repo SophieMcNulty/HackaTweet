@@ -79,9 +79,9 @@ function LoginModal(props) {
                         value={signUpUsername}
                     />
                     <input
+                        type="password"
                         placeholder='Password'
                         className={styles.input}
-                        type="text"
                         onChange={(e) => setSignUpPassword(e.target.value)}
                         value={signUpPassword}
                     />
@@ -119,9 +119,10 @@ function LoginModal(props) {
                     value={signUpUsername}
                 />
                 <input
+                    type="password"
                     placeholder='Password'
                     className={styles.input}
-                    type="text"
+
                     onChange={(e) => setSignUpPassword(e.target.value)}
                     value={signUpPassword}
                 />

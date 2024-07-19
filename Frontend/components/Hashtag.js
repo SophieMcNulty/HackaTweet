@@ -1,12 +1,15 @@
 import styles from '../styles/Hashtag.module.css';
 import { useState, useEffect } from 'react';
+import { updateSearchHashtag } from '../reducers/users';
+import { useDispatch, useSelector } from 'react-redux';
 
 function Hashtag(props) {
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.user.value);
     const [numberHashtag, setNumberHashtag] = useState(0)
 
     useEffect(() => {
         getNumberOfHashtag()
-
     }, [])
 
     const getNumberOfHashtag = async () => {
@@ -26,9 +29,13 @@ function Hashtag(props) {
         nmHash = <p>{numberHashtag} Tweet</p>
     }
 
+    const searchTweetWithHashtag = () => {
+        props.searchHash(props.hashtag)
+    }
+
     return (
-        <div className={styles.hashtag}>
-            <h2>#{props.hashtag}</h2>
+        <div className={styles.hashtag} onClick={() => searchTweetWithHashtag()}>
+            <h2>{props.hashtag}</h2>
             {nmHash}
         </div>
     );

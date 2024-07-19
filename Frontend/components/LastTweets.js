@@ -10,33 +10,39 @@ function LastTweets() {
     const [tweetInput, setTweetInput] = useState('')
 
     useEffect(() => {
+        fetchAllTweets()
+    }, [])
+
+    const fetchAllTweets = () => {
         fetch('http://localhost:3000/tweets')
             .then(response => response.json())
             .then(allTweets => {
                 setTweetsList(allTweets.tweets)
             })
-    }, [])
-    console.log("user from LastTweets: ", user)
+    }
 
-    // console.log(tweetsList)
+    const allTweets = tweetsList.slice().reverse().map((data, i) => {
+        return <Tweet key={i} {...data} refresh={fetchAllTweets} />;
+    });
 
-    const allTweets = tweetsList.map((data, i) => {
-        // console.log(data)
-        return <Tweet {...data} />
-    })
-    // console.log("all tweets : ", allTweets)
+    const findHashtag = (text) => {
+        const hashtagRegex = /#\w+/gi;
+        const resultRegex = text.match(hashtagRegex) || [''];
+        return resultRegex
+    };
 
     const postTweet = () => {
         if (user.isConnected) {
 
+            const hashtags = findHashtag(tweetInput);
             fetch('http://localhost:3000/tweets/postTweet', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ textContent: tweetInput, username: user.username, firstname: user.firstname, }),
+                body: JSON.stringify({ textContent: tweetInput, username: user.username, firstname: user.firstname, hashtags: hashtags }),
             }).then(response => response.json())
                 .then(data => {
                     if (data.result) {
-                        tweetsList.push(data)
+                        setTweetsList([...tweetsList, data.tweet]);
                         setTweetInput('')
                     }
                 });
@@ -44,6 +50,8 @@ function LastTweets() {
             alert("please Log in")
         }
     }
+
+
 
     return (
 
@@ -54,15 +62,14 @@ function LastTweets() {
                     type="text"
                     placeholder="What's up"
                     maxLength={280}
-                    onChange={(e) => setTweetInput(e.target.value)} />
+                    onChange={(e) => setTweetInput(e.target.value)}
+                    value={tweetInput} />
                 <div className={styles.btnContainer}>
-                    <span>{tweetInput.length}/280</span><button onClick={() => postTweet()} className={styles.tweetBtn}>Tweet</button>
+                    <span className={styles.nbrOfCaracters}>{tweetInput.length}/280</span><button onClick={() => postTweet()} className={styles.tweetBtn}>Tweet</button>
                 </div>
             </div>
             <div className={styles.allTweets}>
-
                 {allTweets}
-
             </div>
 
         </div>
